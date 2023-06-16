@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: vt_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - 3001:3000
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    name: dev-network
